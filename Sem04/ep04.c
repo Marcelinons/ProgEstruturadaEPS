@@ -3,6 +3,10 @@
 
 /* EP04_04
  *
+ * Creates a Athletes type to store athlete's name, age and height. Reads from
+ * the keyboard n athletes information and prints out the oldest and the tallest
+ * athletes' names.
+ *
  * - Nicolas M. 14-10-2022
 */
 

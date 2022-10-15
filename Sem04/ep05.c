@@ -2,6 +2,10 @@
 
 /* EP04_05
  *
+ * Creates a Athlete type structure to storage athletes' names, ages and
+ * heights. Reads from the keyboard n athletes' info, and prints the ages in a
+ * crescent order.
+ *
  * -Nicolas M. 14-10-2022
  */
 
