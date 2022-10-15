@@ -3,7 +3,7 @@
 /* EP04_05
  *
  * -Nicolas M. 14-10-2022
-*/
+ */
 
 /// @brief Stores athlete's name, age and height.
 typedef struct TAthData
