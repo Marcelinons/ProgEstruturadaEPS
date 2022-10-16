@@ -50,6 +50,7 @@ float CalcTPDist(float aX, float aY, float bX, float bY);
 /// @return 1 se os pontos formarem um retangulo; 0 caso contrario.
 int IsARectangle(Retangulo *ret);
 
+
 float CalcDiag(Retangulo *ret)
 {
     for (int i = 0; i < 4; i++)
