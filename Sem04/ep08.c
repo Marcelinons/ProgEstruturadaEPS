@@ -1,6 +1,9 @@
 #include "bib_ep08.h"
 
-
-void main () {
-    Test();
+int main() {
+  // incluir o seu código abaixo
+  char fileName[50];
+  scanf("%s", fileName);
+  
+  return 0;
 }
