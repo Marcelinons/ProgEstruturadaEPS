@@ -1,13 +1,25 @@
 #include "bib_ep08.h"
 
-// cria um aluno a partir de uma linha de texto. 
-// Exemplo: ra, nome, p1, p2, p3
-// "1234, Marcos Silva, 8.7, 8.1, 10.0"
 void criaAluno(Aluno* a, char linha[512]) {
+    char* tk = strtok(linha, ",");
+    (*a).ra = atoi(tk);
+
+    tk = strtok(NULL, ",");
+    strcpy((*a).nome, tk);
+
+    tk = strtok(NULL, ",");
+    (*a).p1 = atof(tk);
     
+    tk = strtok(NULL, ",");
+    (*a).p2 = atof(tk);
+
+    tk = strtok(NULL, ",");
+    (*a).p3 = atof(tk);
 }
 
 void escreverAluno(Aluno a) {
-    // inclui a seguir o seu código
-
-  
+    printf("ra: %d\nnome:%s\n", a.ra, a.nome);
+    printf("p1: %.1f\np2: %.1f\np3: %.1f\n", a.p1, a.p2, a.p3);
+    printf("final: %.1f\n", a.final);
+    printf("\n");
+}
