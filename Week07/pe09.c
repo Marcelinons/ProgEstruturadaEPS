@@ -1,15 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-Implemente uma função que RECEBA como parâmetro uma MATRIZ A contendo 3 linhas e 3 colunas. A função deve RETORNAR o ponteiro para um VETOR B de tamanho 3 ALOCADO DINAMICAMENTE, em que cada POSIÇÃO de B é a SOMA dos números de cada COLUNA da matriz. Por fim, os elementos de B devem ser IMPRESSOS no main().
+/* EP07_09
+
+    Receives a int 3 by 3 matrix as a one-dimensional array; returns a pointer
+    to a dynamically allocated array of 3 ints, where each element is composed
+    by the sum of the numbers in each column of the matrix.
+
+    Author: Nicolas Marcelino da Silva <05/11/2022>
 */
 
-/// @brief Retorna um ponteiro para um vetor dinâmico de 3 inteiros, onde cada
-/// elemento do vetor é composto pela soma dos números das colunas da dada
-/// matriz. 
-/// @param mat_A Pointer para o primeiro elemento da matriz de 3x3; 
-/// @return Ponteiro para vetor dinâmico 3 elementos inteiros.
+/// @brief Returns a pointer to a dynamic 3 elements array, where each element
+/// of the array is composed by the sum of the numbers of each columns of the
+/// given matrix.
+/// @param mat_A Pointer to the first element of the 3x3 matrix (this being a
+/// one-dimensional array);
+/// @return Pointer to a dynamic 3 int array.
 int* funcao(int *mat_A);
 
 void main() 
