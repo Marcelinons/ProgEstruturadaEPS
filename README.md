@@ -1,5 +1,5 @@
-# ProgEstruturadaEPS
+# Structured programming exercises.
 
-Repositório de soluções dos EPs de Programação Estruturada, Q32022 UFABC
+Solutions repository for the programming exercises (PEs) from Structured Programming classes, UFABC 3Q22.
 
--- NicolasM.
+Author: Nicolas Marcelino da Silva
