@@ -3,9 +3,9 @@
 
 /* EP07_09
 
-    Receives a int 3 by 3 matrix as a one-dimensional array; returns a pointer
-    to a dynamically allocated array of 3 ints, where each element is composed
-    by the sum of the numbers in each column of the matrix.
+    Receives a 3 by 3 integers matrix as a one-dimensional array; returns a
+    pointer to a dynamically allocated array of 3 ints, where each element is
+    composed by the sum of the numbers in each column of the matrix.
 
     Author: Nicolas Marcelino da Silva <05/11/2022>
 */
