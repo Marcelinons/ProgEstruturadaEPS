@@ -1,15 +1,23 @@
 #include "DynamicList.h"
 
+/*
+    METHODS USED TO CONTROL CHAINED LISTS.
+
+    AUTHOR: Nicolas Marcelino da Silva.
+*/
+
 List* CreateList() {
     List* li;
     // Allocating memory space for the list.
     li = (List *) malloc(sizeof(List));
     if (li != NULL) {
         *li = NULL;
+    } else {
+        printf("ERROR -> CreateList: could not allocate memory to create"
+            " the list.\n");
     }
     return li;
 }
-
 
 void FreeMemory(List *li) {
 
@@ -54,8 +62,9 @@ int EmptyList(List *li) {
     }
 }
 
-int InserNewElemBeginning(List *li, int n) {
+int InsertBeginning(List *li, int n) {
     if (li == NULL) {
+        printf("ERROR -> InsertBeginning: the pointer to the list is NULL.\n");
         return 0;
     } else {
         Elem *node = NULL;
@@ -68,11 +77,13 @@ int InserNewElemBeginning(List *li, int n) {
             *li = node;
         }
     }
+    return 1;
 }
 
-int InsertNewElem(List *li, int n) {
+int InsertEnd(List *li, int n) {
     // Checks if its possible to insert a new element.
     if (li == NULL) {
+        printf("ERROR -> InsertEnd: the pointer to the list is NULL.\n");
         return 0;
     }
     Elem *node = NULL;
@@ -119,70 +130,198 @@ int GetElemInPos(List *li, int pos) {
     }
 }
 
-float MeanFFive(List *li) {
-    int sum = 0, i = 0;
+float Mean(List *li) {
+    int sum = 0, elementsCount = 0;
+    Elem *node = NULL;
     if (li == NULL) {
+        printf("ERROR -> Mean: the pointer to the list is NULL.\n");
         exit(0);
     }
-    for (i = 0; i < 5; i++) {
-        sum += GetElemInPos(li, i+1);
+    node = *li;
+    while (node != NULL) {
+        sum += node->num;
+        node = node->next;
+        elementsCount++;
     }
-    return sum/(float)5;
+    return sum/(float)elementsCount;
 }
 
 void Head(List *li) {
-    int i = 0;
+    int i = 1;
+    Elem *node = NULL;
     if (li == NULL) {
-        exit(0);
+        printf("ERROR -> Head: the pointer to the list is NULL.\n");
+        return;
     }
-    for (i = 0; i < 5; i++) {
-        printf("%d ", GetElemInPos(li, i+1));
+    node = *li;
+    while (node != NULL && i < 6) {
+        printf("%d ", node->num);
+        node = node->next;
+        i++;
     }
     printf("\n");
 }
 
 int CountPairElems(List *li) {
-    int i, count = 0, elem;
+    int count = 0;
+    Elem *node = NULL;
+
     if (li == NULL) {
+        printf("ERROR -> CountPairElems: the pointer to the list is NULL.\n");
         exit(0);
     }
-    for (i = 0; i < 5; i++) {
-        elem = GetElemInPos(li, i+1);
-        if (elem%2 == 0) {
+    node = *li;
+    while (node != NULL) {
+        if (node->num%2 == 0) {
             count++;
         }
+        node = node->next;
     }
     return count;
 }
 
-int LargestAmongFFive(List *li, int *largPos) {
-    int i, largest, elem;
+int Largest(List *li, int *largPos) {
+    int i = 1, largest;
+    Elem *node = NULL;
+    
     if (li == NULL) {
+        printf("ERROR -> LargestAmongFFive: the pointer to the list is NULL.\n");
         exit(0);
     }
-    for (i = 0; i < 5; i++) {
-        elem = GetElemInPos(li, i+1);
-        if (i == 0) {
-            largest = elem;
+    node = *li;
+    while (node != NULL) {
+        if (i == 1) {
+            largest = node->num;
         } else {
-            if (elem > largest) {
-                largest = elem;
-                *largPos = i+1;
+            if (node->num > largest) {
+                largest = node->num;
+                *largPos = i;
             }
         }
+        node = node->next;
+        i++;
     }
     return largest;
 }
 
-int SumFFive(List *li) {
-    int i, sum = 0, elem;
+int Sum(List *li) {
+    int sum = 0;
+    Elem *node = NULL;
+    
     if (li == NULL) {
+        printf("ERROR -> Sum: the pointer to the list is NULL.\n");
         exit(0);
     } else {
-        for (i = 0; i < 5; i++) {
-            elem = GetElemInPos(li, i+1);
-            sum += elem;
+        node = *li;
+        while (node != NULL) {
+            sum += node->num;
+            node = node->next;
         }
     }
     return sum;
+}
+
+void Calculations(List *li) {
+    int i = 1, sum = 0, largest, largestPos, elem, pairCount = 0;
+    float mean;
+    Elem *node = NULL;
+    
+    if (li == NULL) {
+        printf("ERROR -> Calculations: the pointer to the list is NULL.\n");
+        exit(0);
+    } else {
+        node = *li;
+        while (node != NULL) {
+            elem = node->num;
+            sum += elem;
+            if (elem % 2 == 0) {
+                pairCount++;
+            }
+            if (i == 1) {
+                largest = elem;
+            } else {
+                if (elem > largest) {
+                    largest = elem;
+                    largestPos = i;
+                }
+            }
+            node = node->next;
+            i++;
+        }
+    }
+    // Print results.
+    printf("a) Qtd. pares: %d\n", pairCount);
+    printf("b) Media: %.2f\n", sum/(float)5);
+    printf("c) Maior: %d\n", largest);
+    printf("d) Posicao (Maior): %d\n", largestPos);
+    printf("e) Soma: %d\n", sum);
+}
+
+int EqualLists(List *li_1, List *li_2) {
+    Elem *node1 = NULL, *node2 = NULL;
+
+    if (li_1 == NULL || li_2 == NULL) {
+        printf("ERROR -> AreTheyEqual: one or two pointers are NULL.\n");
+        exit(0);
+    }
+    node1 = *li_1;
+    node2 = *li_2;
+    while (node1 != NULL && node2 != NULL) {
+        printf("%d ", node1->num);
+        
+        if (node1->num != node2->num) {
+            return 0;
+        }
+        node1 = node1->next;
+        node2 = node2->next;
+    }
+    return 1;
+}
+
+int RemoveFirstN(List *li, int n) {
+    int i = 0;
+    Elem *node = NULL;
+    if (li == NULL) {
+        printf("ERROR -> RemoveFirstN: pointer to the list is NULL.\n");
+        return 0;
+    }
+    node = *li;
+    while (node != NULL && i <= n) {
+        *li = node;
+        node = node->next;
+        i++;
+    }
+    return 1;
+}
+
+int RemoveLastN(List *li, int n) {
+    Elem *node = NULL, *previous = NULL;
+    if (li == NULL || *li == NULL) {
+        printf("ERROR -> RemoveLastN: pointer to the list is NULL.\n");
+        return 0;
+    }
+    // Repeat N times or while the start of the list (*li) is not NULL.
+    while (*li != NULL && n > 0) {
+        // First element of the list.
+        node = *li;
+        if (node == NULL) {
+            break;
+        }
+        // Find the last element and the last but one elements of the list.
+        while (node->next != NULL) {
+            previous = node;
+            node = node->next;
+        }
+        if (node == *li) {
+            // If the last element is the first, then set the *li to NULL.
+            *li = node->next;
+        } else {
+            // Otherwise, set the last but one element's next component to NULL.
+            previous->next = NULL;
+        }
+        // Release the used memory of the last node.
+        free(node);
+        n--;
+    }
+    return 1;
 }
