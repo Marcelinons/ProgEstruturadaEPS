@@ -39,8 +39,14 @@ int main()
 
     printf("------ OUTPUTS ------\n");
 
-    RemoveLastN(li1, 9);
+    // RemoveLastN(li1, 9);
 
+    printf("BEFORE SWITCH POS 1 AND 3: ");
+    Head(li1);
+
+    SwitchElems(li1, 1, 3);
+
+    printf("AFTER SWITCH POS 1 AND 3:  ");
     Head(li1);
 
     // if (EqualLists(li1, li2)) {

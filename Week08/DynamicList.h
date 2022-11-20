@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /*
-    METHODS USED TO CONTROL CHAINED LISTS.
+    METHODS USED TO CONTROL CHAINED LISTS (INT TYPE ONLY FOR NOW).
 
     AUTHOR: Nicolas Marcelino da Silva.
 */
@@ -103,3 +103,48 @@ int RemoveFirstN(List *li, int n);
 /// @param n Quantity of numbers to be removed.
 /// @return 1 if removal is successful. 0 otherwise.
 int RemoveLastN(List *li, int n);
+
+/// @brief Inverts the positions of two elements on the two given positions of
+/// the list.
+/// @param li Pointer-to-pointer to the first element of the list. 
+/// @param pos1 Position of the first element.
+/// @param pos2 Position of the second element.
+/// @return 1 if switch is successful, 0 otherwise.
+void SwitchElems(List *li, int pos1, int pos2);
+
+/// @brief Receives the elements of a main list, a position on this list and
+/// two secondary lists. Then, add to the first secondary list all the elements 
+/// that are behind this given position as well as the element that is occupying 
+/// her. Finally, adds the remaining elements on the second secondary list.
+/// @param li Pointer-to-pointer to the first element of the main list.
+/// @param pos Position which will be the "breakpoint".
+/// @param sub1 Pointer-to-pointer to the first element of the first secondary
+/// list.
+/// @param sub2 Pointer-to-pointer to the first element of the second secondary
+/// list.
+void Sublists(List *li, int pos, List *sub1, List *sub2);
+
+/// @brief Inverts the elements of a given list.
+/// @param li Pointer-to-pointer to the first element of the main list.
+/// @param secList Pointer-to-pointer to the first element of the sec list.
+void InvertElems(List *li, List *secList);
+
+/// @brief Receives a main list and adds its pair elements to another list.
+/// @param li Pointer-to-pointer to the first element of the main list.
+/// @param secList Pointer-to-pointer to the first element of the sec list.
+void GetPairs(List *li, List *secList); 
+
+/// @brief Sums the elements that are in two given positions of the list.
+/// @param li Pointer-to-pointer to the first element of the list.
+/// @param pos1 Position of the first element.
+/// @param pos2 Position of the second element.
+/// @return Sum of the two elements.
+int SumTwoPos(List *li, int pos1, int pos2);
+
+/// @brief Sums the positive elements of the list. Also, counts how many 
+/// negative elements are in the list.
+/// @param li Pointer-to-pointer to the first element of the list.
+/// @param negatives Pointer to a variable which will store the number of 
+/// negative elements.
+/// @return Sum of all positive elements in the list.
+int SumPosElems(List *li, int *negatives);

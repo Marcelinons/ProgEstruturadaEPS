@@ -285,11 +285,14 @@ int RemoveFirstN(List *li, int n) {
         printf("ERROR -> RemoveFirstN: pointer to the list is NULL.\n");
         return 0;
     }
-    node = *li;
-    while (node != NULL && i <= n) {
-        *li = node;
-        node = node->next;
-        i++;
+    // Repeats N times.
+    for (i = 0; i < n; i++) {
+        // Get the first element of the list.
+        node = *li;
+        // Move *li pointer to the next element.
+        *li = node->next;
+        // Free the previous element.
+        free(node);
     }
     return 1;
 }
@@ -324,4 +327,198 @@ int RemoveLastN(List *li, int n) {
         n--;
     }
     return 1;
+}
+
+void SwitchElems(List* li, int pos1, int pos2) {
+    Elem *node1 = NULL, *node2 = NULL, *ant1 = NULL, *ant2 = NULL, *aux = NULL;
+    int i = 1;
+    if (li == NULL || pos1 < 1 || pos2 < 1 || pos1 == pos2) {
+        return;
+    }
+    node1 = *li;
+    node2 = *li;
+    while (node1->next != NULL && i < pos1) {
+        ant1 = node1;
+        node1 = node1->next;
+        i++;
+    }
+    i = 1;
+    while (node2->next != NULL && i < pos2) {
+        ant2 = node2;
+        node2 = node2->next;
+        i++;
+    }
+    if (ant1 == NULL) {
+        *li = node2;
+    } else { 
+        ant1->next = node2;
+    }
+
+    if (ant2 == NULL) {
+        *li = node1;
+    } else {
+        ant2->next = node1;
+    }
+    aux = node1->next;
+    node1->next = node2->next;
+    node2->next = aux;
+    return;
+}
+
+void Sublists(List *li, int pos, List *sub1, List *sub2) {
+    int i = 0;
+    Elem *node = NULL, *node1 = NULL, *node2 = NULL, *aux = NULL;
+    if (li == NULL || sub1 == NULL || sub2 == NULL || pos < 0) {
+        return;
+    }
+    node = *li;
+    while (node != NULL) {
+        if (i < pos) {
+            node1 = (Elem *) malloc(sizeof(Elem));
+            if (node1 == NULL) {
+                return;
+            }
+            node1->num = node->num;
+            node1->next = NULL;
+            if (*sub1 == NULL) {
+                *sub1 = node1;
+            } else {
+                aux = *sub1;
+                while (aux->next != NULL) {
+                    aux = aux->next;
+                }
+                aux->next = node1;
+            }
+        } else {
+            node2 = (Elem *) malloc(sizeof(Elem));
+            if (node2 == NULL) {
+                return;
+            }
+            node2->num = node->num;
+            node2->next = NULL;
+            if (*sub2 == NULL) {
+                *sub2 = node2;
+            } else {
+                aux = *sub2;
+                while (aux->next != NULL) {
+                    aux = aux->next;
+                }
+                aux->next = node2;
+            }
+        }
+        node = node->next;
+        i++;
+    }
+    return;
+}
+
+void InvertElems(List *li, List *secList) {
+    Elem *node = NULL, *secNode = NULL, *aux = NULL;
+    if (li == NULL || secList == NULL) {
+        printf("The pointer to some of the lists is null.\n");
+        return;
+    }
+    node = *li;
+    // Runs through the list.
+    while (node != NULL) {
+        // Add a element to the beginning of the sec list.
+        secNode = (Elem *) malloc(sizeof(Elem));
+        if (secNode == NULL) {
+            return;
+        }
+        secNode->num = node->num;
+        secNode->next = *secList;
+        if (*secList == NULL) {
+            *secList = secNode;
+        } else {
+            *secList = secNode;
+        }
+        node = node->next;       
+    }
+}
+
+void GetPairs(List *li, List *secList) {
+    Elem *node = NULL, *node1 = NULL, *aux = NULL;
+    if (li == NULL || secList == NULL) {
+        return;
+    }
+    node = *li;
+    while (node == NULL) {
+        if (node->num % 2 == 0) {
+            node1 = (Elem *) malloc(sizeof(Elem));
+            if (node1 == NULL) {
+                return;
+            }
+            node1->num = node->num;
+            node1->next = NULL;
+            if (*secList == NULL) {
+                *secList = node1;
+            } else {
+                aux = *secList;
+                while(aux->next != NULL) {
+                    aux = aux->next;
+                }
+                aux->next = node1;
+            }
+        }
+    }
+} 
+
+int SumTwoPos(List *li, int pos1, int pos2) {
+    Elem *temp1 = NULL, *temp2 = NULL;
+    int i = 1;
+    int sum = 0;
+    if (li == NULL) {
+        printf("ERROR AT SumTwoPos -> THE POINTER TO THE LIST IS NULL.\n");
+        exit(0);
+    } else if (pos1 < 1 || pos2 < 1) {
+        printf("ERROR AT SumTwoPos -> POS VALUES CANNOT BE SMALLER THAN 1.\n");
+        exit(0);
+    } else if (pos1 == pos2) {
+        printf("ERROR AT SumTwoPos -> POS VALUES MUST BE DIFFERENT.\n");
+        exit(0);
+    }
+    temp1 = *li;
+    temp2 = *li;
+
+    // Find the first element.
+    while(temp1 != NULL && i < pos1) {
+        temp1 = temp1->next;
+        i++;
+    }
+    if (temp1 == NULL) {
+        printf("ERROR AT SumTwoPost -> LIST OUT OF RANGE.\n");
+        exit(0);
+    }
+    
+    // Find the second element.
+    i = 1;
+    while(temp2 != NULL && i < pos2) {
+        temp2 = temp2->next;
+        i++;
+    }
+    if (temp2 == NULL) {
+        printf("ERROR AT SumTwoPost -> LIST OUT OF RANGE.\n");
+        exit(0);
+    }
+    sum = temp1->num + temp2->num;
+    return sum;
+}
+
+int SumPosElems(List *li, int *negatives) {
+    Elem *node = NULL;
+    int sum = 0;
+    if (li == NULL || negatives == NULL) {
+        printf("ERROR AT SumPosElems -> ONE OR MORE POINTERS ARE NULL.\n");
+        exit(0);
+    } 
+    node = *li;
+    while(node != NULL) {
+        if (node->num >= 0) {
+            sum += node->num;
+        } else {
+            *negatives += 1;
+        }
+    }
+    return sum;
 }
