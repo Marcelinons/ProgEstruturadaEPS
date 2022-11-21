@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /* 
-    Do the same as pe06.c, but using a dynamically allocated list.
+    Do the same as pe06.c, but using a linked list.
 */
 
 struct elem {
