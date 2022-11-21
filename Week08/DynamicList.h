@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /*
-    METHODS USED TO CONTROL CHAINED LISTS (INT TYPE ONLY FOR NOW).
+    METHODS USED TO CONTROL LINKED LISTS (INT TYPE ONLY FOR NOW).
 
     AUTHOR: Nicolas Marcelino da Silva.
 */

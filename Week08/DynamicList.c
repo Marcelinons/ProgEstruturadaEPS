@@ -1,7 +1,7 @@
 #include "DynamicList.h"
 
 /*
-    METHODS USED TO CONTROL CHAINED LISTS.
+    METHODS USED TO CONTROL LINKED LISTS (INT TYPE ONLY FOR NOW).
 
     AUTHOR: Nicolas Marcelino da Silva.
 */
