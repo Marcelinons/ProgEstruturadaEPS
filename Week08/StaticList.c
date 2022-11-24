@@ -226,3 +226,63 @@ int GetPosOfElem(List *li, int elem) {
         return i+1;
     }
 }
+
+int BubbleSort(List *list) {
+    int i = 0, run = 0, n = list->qtd, aux;
+    if (list == NULL) {
+        return 0;
+    }
+    do {
+        run = 0;
+        for (i = 0; i < n-1; i++) {
+            if (list->num[i] > list->num[i+1]) {
+                aux = list->num[i];
+                list->num[i] = list->num[i+1];
+                list->num[i+1] = aux;
+                run = 1;
+            }
+        }
+        n--;
+    } while (run);
+    return 1;
+}
+
+int SelectionSort(List *list) {
+    int i, j, aux, swap, largPos, largest;
+    if (list == NULL) {
+        return 0;
+    }
+    for (i = 0; i < list->qtd-1; i++) {
+        swap = 0;
+        largest = list->num[i];
+        for (j = i+1; j < list->qtd; j++) {
+            if (largest > list->num[j]) {
+                largest = list->num[j];
+                swap = 1;
+                largPos = j;
+            }
+        }
+        if (swap) {
+            aux = list->num[i];
+            list->num[i] = list->num[largPos];
+            list->num[largPos] = aux;
+        }
+    }
+    return 1;
+}
+
+int InsertionSort(List *list) {
+    int i, j, actual;
+    if (list == NULL) {
+        return 0;
+    }
+    for (i = 0; i < list->qtd; i++) {
+        actual = list->num[i];
+        j = i;
+        while (j > 0 && actual < list->num[j - 1]) {
+            list->num[j] = list->num[j-1];
+            j--;
+        }
+        list->num[j] = actual;
+    }
+}   

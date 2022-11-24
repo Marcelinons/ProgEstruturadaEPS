@@ -96,3 +96,18 @@ int GetNInPos(List *li, int pos);
 /// @return The position (not the index) of a given element inside the list. If
 /// the element is not in the list, or the pointer is NULL, returns -1.
 int GetPosOfElem(List *li, int elem);
+
+/// @brief Sorts the list using bubble sort algorithm.
+/// @param li Pointer to the first element of the list.
+/// @return 1 if sorting is successful, 0 otherwise.
+int BubbleSort(List *list);
+
+/// @brief Sorts a given list using selection sorting algorithm.
+/// @param list Pointer to the first element of the list.
+/// @return 1 if sorting is successful, 0 otherwise.
+int SelectionSort(List *list);
+
+/// @brief Sorts a given list using insertion sorting algorithm.
+/// @param list Pointer to the first element of the list.
+/// @return 1 if sorting is successful, 0 otherwise.
+int InsertionSort(List *list);
