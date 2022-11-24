@@ -148,3 +148,20 @@ int SumTwoPos(List *li, int pos1, int pos2);
 /// negative elements.
 /// @return Sum of all positive elements in the list.
 int SumPosElems(List *li, int *negatives);
+
+/// @brief Count how many elements are in the list.
+/// @param list Pointer-to-pointer to the first element of the list.
+/// @return Number of elements in the list.
+int ListSize(Elem **list);
+
+/// @brief Sorts the elements of a given list in crescent order using selection
+/// sort algorithm. NOTE THAT THIS METHOD SWAPS THE DATA OF THE NODES INSTEAD OF
+/// CHANGING ITS POINTERS.
+/// @param list Pointer to pointer to the first element of the list.
+/// @return 1 if sort is successful, 0 otherwise.
+int SelectionSort(Elem **list, int listSize);
+
+/// @brief Sort a list of ints using the bubble sort algorithm.
+/// @param li Pointer to the first element of a list.
+/// @return 1 if sorting is successful, 0 otherwise.
+int BubbleSort(List *li);

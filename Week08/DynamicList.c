@@ -522,3 +522,152 @@ int SumPosElems(List *li, int *negatives) {
     }
     return sum;
 }
+
+int ListSize(Elem **list) {
+    Elem *temp = NULL;
+    int count = 0;
+    if (list == NULL) {
+        exit(0);
+    }
+    temp = *list;
+    while (temp != NULL) {
+        temp = temp->next;
+        count++;
+    }
+    return count;
+}
+
+int SelectionSort(Elem **list, int listSize) {
+    Elem *node = NULL, *temp = NULL, *largest = NULL;
+    int swap, aux;
+    if (list == NULL) {
+        return 0;
+    }
+    node = *list;
+    for (int i = 0; i < listSize-1; i++) {
+        swap = 0;
+        largest = node;
+        temp = node->next;
+        // Find the largest num in the list (that come after node).
+        while (temp != NULL) {
+            if (largest->num > temp->num) {
+                largest = temp;
+                swap = 1;
+            }
+            temp = temp->next;
+        }
+        if (swap) {
+            aux = node->num;
+            node->num = largest->num;
+            largest->num = aux;
+        }
+        node = node->next;
+    }
+    return 1;
+}
+
+/* int SelectionSort(Elem **list, int listSize) {
+    Elem *temp = NULL, *nextElem = NULL, *current = NULL, *aux = NULL;
+    Elem *largest = NULL, *prevLarg = NULL, *antCurr = NULL;
+    int swap;
+    if (list == NULL) {
+        return 0;
+    }
+    current = *list;
+    
+    for (int i = 0; i < listSize-1; i++) {
+        swap = 0;
+        nextElem = current;
+        
+        largest = current;
+
+        temp = current;
+        for (int j = i+1; j < listSize; j++) {
+            nextElem = current->next;
+            if (largest->num < nextElem->num) {
+                swap = 1;
+                largest = nextElem;
+            }
+        }
+        if (swap) {
+            // Find the previous elements.
+            if (current == *list) {
+                *list = largest;
+            } else {
+                antCurr = *list;
+                while (antCurr->next != current) {
+                    antCurr = antCurr->next;
+                }
+                antCurr->next = largest;
+            }
+            prevLarg = *list;
+            while (prevLarg->next != largest) {
+                prevLarg = prevLarg->next;
+            }
+
+
+
+            prevLarg->next = current;
+            aux = largest->next;
+            largest->next = temp->next;
+            current->next = aux;
+        }
+        current = current->next;
+    }   
+    //printf("%d", largest->num);
+} */
+
+/* int BubbleSort(Elem **list) {
+    Elem *temp = NULL, *nextE = NULL, *aux = NULL;
+    int run, elements = 0;
+    
+    // Check if the list is empty.
+    if (list == NULL) {
+        return 0;
+    }
+    
+    // Count how many elements are in the list.
+    temp = *list;
+    while (temp != NULL) {
+        elements++;
+        temp = temp->next;
+    }
+
+    for (int i = 0; i <= elements; i++) {
+        temp = *list;
+        nextE = temp->next;
+        run = 0;
+        for (int j = 0; j < elements - i - 1; j++) {
+            if (temp->num > nextE->num) {
+                // If the first element is larger than the second, sets the
+                // beginning of the list to the second element. Otherwise, find
+                // the element that comes immediately before the element and set
+                // its pointer to the next element. 
+               
+                if (temp == *list) {
+                    *list = nextE;
+                } else {
+                    aux = *list;
+                    while (aux->next != temp) {
+                        aux = aux->next;
+                    } 
+                    aux->next = nextE;
+                }
+                aux = temp->next;
+                temp->next = nextE->next;
+                nextE->next = aux;
+            }
+        }
+        if (run == 0) {
+            break;
+        }
+    }
+    return 1;
+}
+
+Elem* SwapNodes(Elem *node1, Elem *node2) {
+    Elem *temp = node2->next;
+    node2->next = node1->next;
+    node1->next = temp;
+    return node2;
+} */
