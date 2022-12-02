@@ -6,7 +6,7 @@
 
 int main()
 {
-    int listSize = 5, num;
+    int listSize = 10, num;
     List *list = CreateList();
     
     // If there are any errors while creating the lists, the program is 
@@ -24,15 +24,18 @@ int main()
         if (!InsertEnd(list, num)) {
             exit(0);
         }
-    }
+    } 
 
     printf("------ OUTPUTS ------\n");
 
-    printf("List: ");
-    Head(list);
-    printf("Sorted List: ");
-    SelectionSort(list, listSize);
-    Head(list);
+    printf("List: \n");
+    PrintList(list);
+    DynamicSort(list, 6);
+    printf("\nList with more elements sorted at the end: \n");
+    PrintList(list);
+    printf("\nSorted List: \n");
+    BubbleSort(list);
+    PrintList(list);
 
     // Free the used memory space.
     FreeMemory(list);

@@ -59,6 +59,10 @@ int GetElemInPos(List *li, int pos);
 /// @return Mean of the arithmetic mean of the elements of the list.
 float Mean(List *li);
 
+/// @brief Prints the elements of a given list.
+/// @param list Pointer to pointer to the first element of the list.
+void PrintList(Elem **list);
+
 /// @brief Prints the first five elements of the list.
 /// @param li Pointer-to-pointer to the first element of the list.
 void Head(List *li);
@@ -154,14 +158,29 @@ int SumPosElems(List *li, int *negatives);
 /// @return Number of elements in the list.
 int ListSize(Elem **list);
 
+/// @brief Sorts the element of a given list in crescent order using selection
+/// sort algorithm.
+/// @param list Pointer to pointer to the first element of the list.
+/// @return 1 if sorting is successful, 0 otherwise.
+int SelectionSort(Elem **list);
+
 /// @brief Sorts the elements of a given list in crescent order using selection
 /// sort algorithm. NOTE THAT THIS METHOD SWAPS THE DATA OF THE NODES INSTEAD OF
 /// CHANGING ITS POINTERS.
 /// @param list Pointer to pointer to the first element of the list.
 /// @return 1 if sort is successful, 0 otherwise.
-int SelectionSort(Elem **list, int listSize);
+int SelectionSortElem(Elem **list, int listSize);
 
-/// @brief Sort a list of ints using the bubble sort algorithm.
-/// @param li Pointer to the first element of a list.
+/// @brief Sorts the elements of the list using the BubbleSort algorithm.
+/// @param list Pointer to pointer to the first element of the list.
 /// @return 1 if sorting is successful, 0 otherwise.
-int BubbleSort(List *li);
+int BubbleSort(Elem **list);
+
+/// @brief Reads n elements and adds them into the given list. The new elements
+/// are sorted on the list while they're added to it. If the given list already
+/// have elements, the new elements will be added in the end of the list. The
+/// existing values will not be changed.
+/// @param list Pointer to pointer to the beginning of the list.
+/// @param n Number of elements to be added.
+/// @return 1 if the procedure turns out successfully, 0 otherwise.
+int ReadNSort(Elem **list, int n);
