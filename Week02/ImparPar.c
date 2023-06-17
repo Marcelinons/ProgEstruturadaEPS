@@ -4,8 +4,8 @@
 
 /** EP_02_02
   *
-  * Recebe um inteiro N e retorna os números naturais ímpares e pares de 0
-  * até N.
+  * Recebe um inteiro N e retorna os nÃºmeros naturais Ã­mpares e pares de 0
+  * atÃ© N.
   *
   * Nicolas Marcelino da Silva
   * 29-09-2022
