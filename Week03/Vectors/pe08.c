@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /* EP03_08
- *
+ * Le vetor de inteiros, verifica se existem elementos iguais nele. Se existirem, retorna um array com os elementos
+ * que se repetem.
  * Nicolas M. 11-10-2022
  */
 
@@ -105,7 +106,7 @@ void GarbRemover(int n, int *v) {
 void PrintVet(int n, int *v) {
     for (int i = 0; i < n; i++) {
         printf("%d ", v[i]);
-    };
+    };    
     printf("\n");
 };
 
