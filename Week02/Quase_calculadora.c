@@ -4,32 +4,32 @@
 
 /** EP_02_04
   *
-  * LÍ um cÛdigo de operaÁ„o:
+  * L√™ um c√≥digo de opera√ß√£o:
   *
   * 1 = (a+b)
   * 2 = (a+b+c)
   * 3 = (a*b)
   * 0 = sair
   *
-  * Se o usu·rio digitar a operaÁ„o SAIR (0), o programa mostra o MENOR
-  * resultado obtido, considerando SOMENTE as operaÁıes realizadas, e ENCERRA.
-  * Entretanto, caso NENHUM CÛdigo de OperaÁ„o seja selecionado, a seguinte
-  * mensagem È impressa: "Nenhum calculo foi realizado!". Caso contr·rio,
-  * solicitar· a ENTRADA dos n˙meros (a e b OU a, b e c) e imprimir· o
-  * resultado da operaÁ„o (soma ou multiplicaÁ„o). ApÛs isso, o programa volta
-  * a SOLICITAR o CÛdigo de OperaÁ„o para o usu·rio digitar uma NOVA OPERA«√O.
+  * Se o usu√°rio digitar a opera√ß√£o SAIR (0), o programa mostra o MENOR
+  * resultado obtido, considerando SOMENTE as opera√ß√µes realizadas, e ENCERRA.
+  * Entretanto, caso NENHUM C√≥digo de Opera√ß√£o seja selecionado, a seguinte
+  * mensagem √© impressa: "Nenhum calculo foi realizado!". Caso contr√°rio,
+  * solicitar√° a ENTRADA dos n√∫meros (a e b OU a, b e c) e imprimir√° o
+  * resultado da opera√ß√£o (soma ou multiplica√ß√£o). Ap√≥s isso, o programa volta
+  * a SOLICITAR o C√≥digo de Opera√ß√£o para o usu√°rio digitar uma NOVA OPERA√á√ÉO.
   *
   * Nicolas Marcelino da Silva
   * 04-10-2022
   **/
 
 
-/// Recebe como par‚metro a operaÁ„o e retorna o resultado.
+/// Recebe como par√¢metro a opera√ß√£o e retorna o resultado.
 int RealizaOperacao(int *, int);
 
 /// Valida a entrada da operacao.
 ///
-/// Se a entrada for diferente de 1, 2, 3 ou 0, retorna 0. Caso contr·rio,
+/// Se a entrada for diferente de 1, 2, 3 ou 0, retorna 0. Caso contr√°rio,
 /// retorna 1.
 int ValidaOperacao(int operacao);
 
@@ -80,7 +80,7 @@ int ValidaOperacao(int op) {
 int main() {
 
     int running = 1, menor, res;
-    int first = 1; // Para verificar se È a primeira iteraÁ„o
+    int first = 1; // Para verificar se √© a primeira itera√ß√£o
 
     while (running) {
         int operacao;
@@ -100,7 +100,7 @@ int main() {
 
         res = RealizaOperacao(&running, operacao);
 
-        // Verifica qual foi o menor resultado atÈ agora;
+        // Verifica qual foi o menor resultado at√© agora;
         if (first) {
             menor = res;
         } else if (res < menor) {
