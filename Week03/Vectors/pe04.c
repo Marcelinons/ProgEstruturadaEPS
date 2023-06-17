@@ -3,6 +3,8 @@
 
 /** EP03_04
 
+Le um vetor de n inteiros, le dois indices do vetor e soma os elementos dessas posicoes.
+
 - Nicolas M. 10.10.2022
 **/
 
