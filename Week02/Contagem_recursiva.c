@@ -4,7 +4,7 @@
 
 /** EP_02_03
   *
-  * Retorna uma contagem regressiva a partir de um int N positivo ou nulo até 0.
+  * Retorna uma contagem regressiva a partir de um int N positivo ou nulo atÃ© 0.
   *
   * Nicolas Marcelino da Silva
   * 29-09-2022
