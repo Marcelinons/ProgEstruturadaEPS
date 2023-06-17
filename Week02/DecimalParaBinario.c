@@ -3,13 +3,13 @@
 
 /** EP_02_15
   *
-  * Converte um natural em base decimal para base bin·ria
+  * Converte um natural em base decimal para base bin√°ria
   *
   * Nicolas Marcelino da Silva
   * 03-09-2022
   **/
 
-/// Converte decimal para bin·rio
+/// Converte decimal para bin√°rio
 int dec2bin(int);
 
 
