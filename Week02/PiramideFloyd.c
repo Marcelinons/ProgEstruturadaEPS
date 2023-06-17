@@ -4,7 +4,7 @@
 
 /** EP_02_07
   *
-  * Retorna a pirâmide de Floyd para um dado N inteiro.
+  * Retorna a pirÃ¢mide de Floyd para um dado N inteiro.
   *
   * Exemplo: N = 6:
   *
@@ -20,8 +20,8 @@
 **/
 
 /*
- Cada linha imprime a mesma quantidade de números; por exemplo na linha 3
- são impressos 3 números, na 4° são impressos 4, etc.
+ Cada linha imprime a mesma quantidade de nÃºmeros; por exemplo na linha 3
+ sÃ£o impressos 3 nÃºmeros, na 4Â° sÃ£o impressos 4, etc.
 */
 
 void main() {
@@ -31,7 +31,7 @@ void main() {
     scanf("%d", &n);
 
     for (int i = 0; i < n; i++) { // Controla as linhas
-        for (int j = 0; j <= i; j++) { // Controla quantos números sao impressos
+        for (int j = 0; j <= i; j++) { // Controla quantos nÃºmeros sao impressos
 
             printf("%d", count);
 
