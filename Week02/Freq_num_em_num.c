@@ -3,14 +3,14 @@
 
 /** EP_02_14
   *
-  * Recebe dois naturais e retorna quantas vezes o segundo número aparece dentro
-  * do primeiro número.
+  * Recebe dois naturais e retorna quantas vezes o segundo nÃºmero aparece dentro
+  * do primeiro nÃºmero.
   *
   * Nicolas Marcelino da Silva
   * 03-09-2022
   **/
 
-/// Conta com que frequência um número aparece dentro de outro.
+/// Conta com que frequÃªncia um nÃºmero aparece dentro de outro.
 int contafreq(int, int);
 
 
@@ -21,7 +21,7 @@ int contafreq(int num, int digt) {
         return 0;
 
     } else {
-        // Se o número é igual, soma 1 à variável 'aparece'
+        // Se o nÃºmero Ã© igual, soma 1 Ã  variÃ¡vel 'aparece'
         if (num % 10 == digt) {
             aparece = 1;
         } else {
