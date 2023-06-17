@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /* EP03_06
- *
+ * Le um array de floats, conta quantos elementos negativos estao nele, soma seus elementos positivos.
  * Nicolas M. 11-10-2022
  */
 
