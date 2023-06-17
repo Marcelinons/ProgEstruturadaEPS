@@ -9,7 +9,7 @@
   * 03-09-2022
   **/
 
-/// Função recursiva para calcular a soma dos primeiro n cubos
+/// FunÃ§Ã£o recursiva para calcular a soma dos primeiro n cubos
 int SomaCubos(int n);
 
 
