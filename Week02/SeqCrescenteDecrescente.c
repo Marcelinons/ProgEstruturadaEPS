@@ -4,8 +4,8 @@
 
 /** EP_02_01
   *
-  * Recebe um inteiro N e retorna uma sequência crescente e decrescente de
-  * 0 à N.
+  * Recebe um inteiro N e retorna uma sequÃªncia crescente e decrescente de
+  * 0 Ã  N.
   *
   * Nicolas Marcelino da Silva
   * 29-09-2022
