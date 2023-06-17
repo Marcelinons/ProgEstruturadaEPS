@@ -3,6 +3,7 @@
 
 /* 
     Do the same as pe06.c, but using a linked list.
+    Faz o mesmo que o pe06, porém usando listas encadeadas (alocação dinamica de memoria)
 */
 
 struct elem {
