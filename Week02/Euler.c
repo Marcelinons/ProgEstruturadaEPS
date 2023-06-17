@@ -15,7 +15,7 @@
 /// Retorna o fatorial de um dado n inteiro (recursiva)
 int Fatorial(int);
 
-/// Retorna o valor de E usando a equação citada
+/// Retorna o valor de E usando a equaÃ§Ã£o citada
 float CalculaE(int);
 
 
