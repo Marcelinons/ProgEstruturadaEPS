@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /* EP03_05
- * 
+ * Le vetor de N elementos, mostra quantos elementos sao pares e quantos sao impares;
+ * Este codigo esta incabado.
  * Nicolas M. 11-10-2022
  */
 
@@ -144,7 +145,7 @@ void main() {
     TrashCleaner(n, vetor);
 
     PrintVector(n, vetor);
-/*
+
     printf("Numeros Pares:\n");
     PrintPairNums(n, vetor);
     
@@ -153,5 +154,4 @@ void main() {
 
     printf("Maior: %d\n", MaxVet(n, vetor));
     printf("Menor: %d\n", MinVet(n, vetor));
-*/
 };
