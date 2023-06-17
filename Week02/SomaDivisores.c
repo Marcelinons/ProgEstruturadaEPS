@@ -3,7 +3,7 @@
 
 /** EP_02_05
   *
-  * Recebe um inteiro e retorna a soma de todos os divisores desse número.
+  * Recebe um inteiro e retorna a soma de todos os divisores desse nÃºmero.
   *
   * Nicolas Marcelino da Silva
   * 29-09-2022
