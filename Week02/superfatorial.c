@@ -4,7 +4,7 @@
 /** EP_02_16
   *
   * Calcula o superfatorial de um dado N natural.
-  * O superfatorial de um número é como um "fatorial de fatoriais";
+  * O superfatorial de um nÃºmero Ã© como um "fatorial de fatoriais";
   *
   * Nicolas Marcelino da Silva
   * 04-10-2022
