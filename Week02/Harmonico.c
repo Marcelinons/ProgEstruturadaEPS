@@ -4,14 +4,14 @@
 
 /** EP_02_06
   *
-  * Calcula o harmônico de um dado inteiro.
+  * Calcula o harmÃ´nico de um dado inteiro.
   *
   * Nicolas Marcelino da Silva
   * 29-09-2022
 **/
 
 
-/// Calcula o harmônico de um inteiro
+/// Calcula o harmÃ´nico de um inteiro
 float Harmonic(int);
 
 
